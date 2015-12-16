@@ -1,0 +1,74 @@
+﻿<Page
+    x:Class="App1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <!--App Title-->
+        <Grid Name="AppTitle" Background="Red" Grid.Row="0">
+            <TextBlock Text="App Title" Style="{StaticResource TitleStyle}"/>
+        </Grid>
+        <!--Drawing Canvas-->
+        <Grid Name="DrawingCanvas" Background="Blue" Grid.Row="1">
+            <Canvas>
+                <TextBlock Text="DRAW HERE" Foreground="White"/>
+            </Canvas>
+        </Grid>
+        <!--Other Stuff-->
+        <Grid Name="OtherStuff" Background="Purple" Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <!--Tools-->
+            <ListBox Name="Tools" Grid.Column="0">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBoxItem Margin="0,20">
+                    <Button Background="Green" Width="100" Height="100">Pen</Button>
+                </ListBoxItem>
+                <ListBoxItem Margin="0,20">
+                    <Button Background="Green" Width="100" Height="100">Eraser</Button>
+                </ListBoxItem>
+            </ListBox>
+            <!--Tools-->
+            <Grid Name="Colors" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Grid.Row="0" Grid.Column="0" Fill="Black"/>
+                <Rectangle Grid.Row="0" Grid.Column="1" Fill="Red"/>
+                <Rectangle Grid.Row="0" Grid.Column="2" Fill="Orange"/>
+                <Rectangle Grid.Row="0" Grid.Column="3" Fill="Yellow"/>
+                <Rectangle Grid.Row="0" Grid.Column="4" Fill="Green"/>
+                
+                <Rectangle Grid.Row="1" Grid.Column="0" Fill="White"/>
+                <Rectangle Grid.Row="1" Grid.Column="1" Fill="Gray"/>
+                <Rectangle Grid.Row="1" Grid.Column="2" Fill="Blue"/>
+                <Rectangle Grid.Row="1" Grid.Column="3" Fill="Purple"/>
+                <Rectangle Grid.Row="1" Grid.Column="4" Fill="Brown"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>
