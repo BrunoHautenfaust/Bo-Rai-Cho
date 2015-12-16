@@ -18,10 +18,8 @@
             <TextBlock Text="App Title" Style="{StaticResource TitleStyle}"/>
         </Grid>
         <!--Drawing Canvas-->
-        <Grid Name="DrawingCanvas" Background="Blue" Grid.Row="1">
-            <Canvas>
-                <TextBlock Text="DRAW HERE" Foreground="White"/>
-            </Canvas>
+        <Grid Name="InkCanvas" Background="White" Grid.Row="1">
+            <Canvas/>
         </Grid>
         <!--Other Stuff-->
         <Grid Name="OtherStuff" Background="Purple" Grid.Row="2" Grid.Column="0">
