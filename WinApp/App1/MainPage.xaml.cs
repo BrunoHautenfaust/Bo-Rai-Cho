@@ -38,6 +38,8 @@ namespace App1
         const double STROKETHICKNESS = 5;
         uint touchID = 0;
 
+        SolidColorBrush changedColor = new SolidColorBrush(Windows.UI.Colors.Black);
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -93,7 +95,7 @@ namespace App1
                         X2 = currentContactPt.X,
                         Y2 = currentContactPt.Y,
                         StrokeThickness = STROKETHICKNESS,
-                        Stroke = new SolidColorBrush(Windows.UI.Colors.Black)
+                        Stroke = changedColor   // Stroke = new SolidColorBrush(Windows.UI.Colors.Black)
                     };
 
                     previousContactPt = currentContactPt;
@@ -210,18 +212,48 @@ namespace App1
             return Math.Sqrt(Math.Pow(currentContact.X - previousContact.X, 2) +
                     Math.Pow(currentContact.Y - previousContact.Y, 2));
         }
-
-
-
-
-        private void ListBoxItem_SizeChanged(object sender, SizeChangedEventArgs e)
+        /*
+        private SolidColorBrush ChangeColor()
         {
+            var changedColor = new SolidColorBrush(Windows.UI.Colors.Black);
+            switch (RectRed.Fill.ToString())
+            {
+                case "Red": changedColor = new SolidColorBrush(Windows.UI.Colors.Red); return changedColor; 
 
+                default: changedColor = new SolidColorBrush(Windows.UI.Colors.Black); return changedColor;
+            }
+           
+    }
+     */
+        private void RedRectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+           changedColor = new SolidColorBrush(Windows.UI.Colors.Red);
+           //     default: changedColor = new SolidColorBrush(Windows.UI.Colors.Black); break;
+            //ChangeColor();
         }
 
-        
+        private void BlackRectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            changedColor = new SolidColorBrush(Windows.UI.Colors.Black);
+        }
 
-        
+        private void OrangeRectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            changedColor = new SolidColorBrush(Windows.UI.Colors.Orange);
+        }
+
+        private void YellowRectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            changedColor = new SolidColorBrush(Windows.UI.Colors.Yellow);
+        }
+
+        private void GreenRectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            changedColor = new SolidColorBrush(Windows.UI.Colors.Green);
+        }
+
+       
+
 
 
     }

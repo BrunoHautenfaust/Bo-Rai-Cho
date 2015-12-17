@@ -20,6 +20,7 @@
         <!--Drawing Canvas-->
         <Grid Name="InkCanvas" Background="White" Grid.Row="1">
             <Canvas/>
+            <TextBlock Text="{Binding ElementName=RectBlack}"/>
         </Grid>
         <!--Other Stuff-->
         <Grid Name="OtherStuff" Background="Purple" Grid.Row="2" Grid.Column="0">
@@ -34,14 +35,10 @@
                         <VirtualizingStackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
-                <ListBoxItem Margin="0,20">
-                    <Button Background="Green" Width="100" Height="100">Pen</Button>
-                </ListBoxItem>
-                <ListBoxItem Margin="0,20">
-                    <Button Background="Green" Width="100" Height="100">Eraser</Button>
-                </ListBoxItem>
+                <ListBoxItem Margin="10,20" Content="Pen" Background="Green" Width="100" Height="100"/>
+                <ListBoxItem Margin="10,20" Content="Eraser" Background="Green" Width="100" Height="100"/>
             </ListBox>
-            <!--Tools-->
+            <!--Colors-->
             <Grid Name="Colors" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -54,11 +51,11 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Rectangle Grid.Row="0" Grid.Column="0" Fill="Black"/>
-                <Rectangle Grid.Row="0" Grid.Column="1" Fill="Red"/>
-                <Rectangle Grid.Row="0" Grid.Column="2" Fill="Orange"/>
-                <Rectangle Grid.Row="0" Grid.Column="3" Fill="Yellow"/>
-                <Rectangle Grid.Row="0" Grid.Column="4" Fill="Green"/>
+                <Rectangle Grid.Row="0" Grid.Column="0" Fill="Black" Tapped="BlackRectangle_Tapped"/>
+                <Rectangle Grid.Row="0" Grid.Column="1" Fill="Red" Tapped="RedRectangle_Tapped"/>
+                <Rectangle Grid.Row="0" Grid.Column="2" Fill="Orange" Tapped="OrangeRectangle_Tapped"/>
+                <Rectangle Grid.Row="0" Grid.Column="3" Fill="Yellow" Tapped="YellowRectangle_Tapped"/>
+                <Rectangle Grid.Row="0" Grid.Column="4" Fill="Green" Tapped="GreenRectangle_Tapped"/>
                 
                 <Rectangle Grid.Row="1" Grid.Column="0" Fill="White"/>
                 <Rectangle Grid.Row="1" Grid.Column="1" Fill="Gray"/>
