@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
+  <CommandSet xml:lang="en-us" Name="WinAppCommandSet_en-us">
+    <CommandPrefix> App, </CommandPrefix>
+    <Example> Click button </Example>
+
+    <Command Name="clickAButton">
+      <Example> Click button  </Example>
+      <ListenFor> click button {control} </ListenFor>
+      <Feedback> clicked button {control} </Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="open">
+      <Example> Open  </Example>
+      <ListenFor> Open </ListenFor>
+      <Feedback> opening App </Feedback>
+      <Navigate/>
+    </Command>
+    
+    <PhraseList Label="control">
+      <Item> Red </Item>
+    </PhraseList>
+    
+    <!--
+    <PhraseTopic Label="newDestination" Scenario="Search">
+      <Subject>City/State</Subject>
+    </PhraseTopic> -->
+  </CommandSet>
+
+    
+<!-- Other CommandSets for other languages -->
+
+</VoiceCommands>
