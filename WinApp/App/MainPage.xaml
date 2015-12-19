@@ -14,13 +14,12 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <!--App Title-->
-        <Grid Name="AppTitle" Background="Red" Grid.Row="0">
+        <Grid Name="AppTitle" Background="Crimson" Grid.Row="0">
             <TextBlock Text="App Title" Style="{StaticResource TitleStyle}"/>
         </Grid>
         <!--Drawing Canvas-->
-        <Grid Name="InkCanvas" Background="White" Grid.Row="1">
+        <Grid Name="InkCanvas" Background="White" Grid.Row="1" BorderBrush="Gray" BorderThickness="5" >
             <Canvas/>
-            <TextBlock Text="{Binding ElementName=RectBlack}"/>
         </Grid>
         <!--Other Stuff-->
         <Grid Name="OtherStuff" Background="Purple" Grid.Row="2" Grid.Column="0">
@@ -29,14 +28,14 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <!--Tools-->
-            <ListBox Name="Tools" Grid.Column="0">
+            <ListBox Name="Tools" Grid.Column="0" Background="DarkGray">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
-                <ListBoxItem Margin="10,20" Content="Pen" Background="Green" Width="100" Height="100"/>
-                <ListBoxItem Margin="10,20" Content="Eraser" Background="Green" Width="100" Height="100"/>
+                <ListBoxItem Margin="10" Content="Pen" Background="Green" Width="100" Height="100" HorizontalContentAlignment="Center"/>
+                <ListBoxItem Margin="10" Content="Clear Canvas" Padding="5"  Background="Green" Width="100" Height="100" Tapped="ListBoxItem_Tapped" />
             </ListBox>
             <!--Colors-->
             <Grid Name="Colors" Grid.Column="1">

@@ -2,23 +2,24 @@
 <VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
   <CommandSet xml:lang="en-us" Name="WinAppCommandSet_en-us">
     <CommandPrefix> App, </CommandPrefix>
-    <Example> Click button </Example>
+    <Example> pick </Example>
 
-    <Command Name="clickAButton">
-      <Example> Click button  </Example>
-      <ListenFor> click button {control} </ListenFor>
-      <Feedback> clicked button {control} </Feedback>
+    <Command Name="pickColor">
+      <Example> pick  </Example>
+      <ListenFor> pick {color} </ListenFor>
+      <Feedback> {color} </Feedback>
       <Navigate/>
     </Command>
 
     <Command Name="open">
       <Example> Open  </Example>
       <ListenFor> Open </ListenFor>
+      <ListenFor> Start </ListenFor>
       <Feedback> opening App </Feedback>
       <Navigate/>
     </Command>
     
-    <PhraseList Label="control">
+    <PhraseList Label="color">
       <Item> Black </Item>
       <Item> Red </Item>
       <Item> Orange </Item>
@@ -30,13 +31,8 @@
       <Item> Purple </Item>
       <Item> Brown </Item>
     </PhraseList>
-    
-    <!--
-    <PhraseTopic Label="newDestination" Scenario="Search">
-      <Subject>City/State</Subject>
-    </PhraseTopic> -->
-  </CommandSet>
 
+  </CommandSet>
     
 <!-- Other CommandSets for other languages -->
 

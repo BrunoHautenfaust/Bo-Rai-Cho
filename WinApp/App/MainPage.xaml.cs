@@ -212,19 +212,7 @@ namespace App1
             return Math.Sqrt(Math.Pow(currentContact.X - previousContact.X, 2) +
                     Math.Pow(currentContact.Y - previousContact.Y, 2));
         }
-        /*
-        private SolidColorBrush ChangeColor()
-        {
-            var changedColor = new SolidColorBrush(Windows.UI.Colors.Black);
-            switch (RectRed.Fill.ToString())
-            {
-                case "Red": changedColor = new SolidColorBrush(Windows.UI.Colors.Red); return changedColor; 
-
-                default: changedColor = new SolidColorBrush(Windows.UI.Colors.Black); return changedColor;
-            }
-           
-    }
-     */
+        
         private static bool flag = false;
         public static bool Flag
         {
@@ -240,10 +228,10 @@ namespace App1
             set { keyword = value; }
         }
 
-        public static void SWITCH() { 
+        public static void PickColor() { 
         if (MainPage.Flag == true)
             {
-                System.Diagnostics.Debug.WriteLine("keyword: " + Keyword);
+               // System.Diagnostics.Debug.WriteLine("keyword: " + Keyword);
                 switch (Keyword)
                 {
                     case "Black": changedColor = new SolidColorBrush(Windows.UI.Colors.Black); break;
@@ -258,7 +246,6 @@ namespace App1
                     case "Brown": changedColor = new SolidColorBrush(Windows.UI.Colors.Brown); break;
                     default: break;
                 }
-               // changedColor = new SolidColorBrush(Windows.UI.Colors.Red);
                 MainPage.Flag = false;
             }
         }
@@ -311,6 +298,11 @@ namespace App1
         private void BrownRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
             changedColor = new SolidColorBrush(Windows.UI.Colors.Brown);
+        }
+
+        private void ListBoxItem_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            InkCanvas.Children.Clear();
         }
     }
 }

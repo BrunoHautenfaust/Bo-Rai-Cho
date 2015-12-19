@@ -10,7 +10,7 @@
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="Aquamarine"/>
+            <Setter Property="Foreground" Value="Black"/>
 
         </Style>
     </Application.Resources>

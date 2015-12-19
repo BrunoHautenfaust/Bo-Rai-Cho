@@ -78,31 +78,23 @@ namespace App1
 
             switch (voiceCommandName)
             {
-                case "clickAButton":
-                    // Access the value of the {control} phrase in the voice command
-                    string control = speechRecognitionResult.SemanticInterpretation.Properties["control"][0];
+                case "pickColor":
+                    // Access the value of the {color} phrase in the voice command
+                    string color = speechRecognitionResult.SemanticInterpretation.Properties["color"][0];
                     System.Diagnostics.Debug.WriteLine("textSpoken: " + textSpoken);
-                    string[] words = control.Split(' ');
+                    string[] words = color.Split(' ');
                     MainPage.Keyword = words[words.Length - 1];
 
                     MainPage.Flag = true;
-                    MainPage.SWITCH();
-                    System.Diagnostics.Debug.WriteLine("last word: " + words[words.Length-1]);
-                    // Create a navigation parameter string to pass to the page
-                    /* navigationParameterString = string.Format("{0}|{1}|{2}|{3}",
-                                    voiceCommandName, commandMode, textSpoken, control); */
-                    // Set the page where to navigate for this voice command
-                    // navigateToPageType = typeof(TripPage);
+                    MainPage.PickColor();
+                    // System.Diagnostics.Debug.WriteLine("last word: " + words[words.Length-1]);
                     break;
 
                 case "open":
                     string open = speechRecognitionResult.RulePath[0];
                     break;
 
-                default:
-                    // There is no match for the voice command name. Navigate to MainPage
-                    // navigateToPageType = typeof(MainPage);
-                    break;
+                default: break;
             }
             /*
             if (this.rootFrame == null)
