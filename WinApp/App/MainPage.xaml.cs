@@ -38,15 +38,7 @@ namespace App1
         const double STROKETHICKNESS = 5;
         uint touchID = 0;
 
-        SolidColorBrush changedColor = new SolidColorBrush(Windows.UI.Colors.Black);
-        // DELETE
-        public SolidColorBrush ChangedColor
-        {
-            get
-            {
-                return changedColor;
-            }
-        }
+        static SolidColorBrush changedColor = new SolidColorBrush(Windows.UI.Colors.Black);
 
         public MainPage()
         {
@@ -233,6 +225,39 @@ namespace App1
            
     }
      */
+        private static bool flag = false;
+        public static bool Flag
+        {
+            get { return flag; }
+            set { flag = value; }
+        }
+
+        private static string keyword;
+
+        public static string Keyword
+        {
+            get { return keyword; }
+            set { keyword = value; }
+        }
+
+        public static void SWITCH() { 
+        if (MainPage.Flag == true)
+            {
+                System.Diagnostics.Debug.WriteLine("keyword: " + Keyword);
+                switch (Keyword)
+                {
+                    case "Black": changedColor = new SolidColorBrush(Windows.UI.Colors.Black); break;
+                    case "Red": changedColor = new SolidColorBrush(Windows.UI.Colors.Red); break;
+                    case "Orange": changedColor = new SolidColorBrush(Windows.UI.Colors.Orange); break;
+                    case "Yellow": changedColor = new SolidColorBrush(Windows.UI.Colors.Yellow); break;
+                    case "Green": changedColor = new SolidColorBrush(Windows.UI.Colors.Green); break;
+                    default: break;
+                }
+               // changedColor = new SolidColorBrush(Windows.UI.Colors.Red);
+                MainPage.Flag = false;
+            }
+        }
+
         public void RedRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
            changedColor = new SolidColorBrush(Windows.UI.Colors.Red);

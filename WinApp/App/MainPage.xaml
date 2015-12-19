@@ -51,7 +51,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Rectangle Grid.Row="0" Grid.Column="0" Fill="Black" Tapped="BlackRectangle_Tapped"/>
+                <Rectangle Grid.Row="0" Grid.Column="0" Fill="Black" Tapped="BlackRectangle_Tapped" />
                 <Rectangle Grid.Row="0" Grid.Column="1" Fill="Red" Tapped="RedRectangle_Tapped"/>
                 <Rectangle Grid.Row="0" Grid.Column="2" Fill="Orange" Tapped="OrangeRectangle_Tapped"/>
                 <Rectangle Grid.Row="0" Grid.Column="3" Fill="Yellow" Tapped="YellowRectangle_Tapped"/>

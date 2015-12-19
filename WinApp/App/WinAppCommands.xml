@@ -19,7 +19,11 @@
     </Command>
     
     <PhraseList Label="control">
+      <Item> Black </Item>
       <Item> Red </Item>
+      <Item> Orange </Item>
+      <Item> Yellow </Item>
+      <Item> Green </Item>
     </PhraseList>
     
     <!--

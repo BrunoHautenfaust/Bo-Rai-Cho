@@ -21,7 +21,7 @@ namespace App1
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    public sealed partial class App : Application
     {
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -81,9 +81,13 @@ namespace App1
                 case "clickAButton":
                     // Access the value of the {control} phrase in the voice command
                     string control = speechRecognitionResult.SemanticInterpretation.Properties["control"][0];
-
                     System.Diagnostics.Debug.WriteLine("textSpoken: " + textSpoken);
-                    // var ChangedColor = new SolidColorBrush(Windows.UI.Colors.Red);
+                    string[] words = control.Split(' ');
+                    MainPage.Keyword = words[words.Length - 1];
+
+                    MainPage.Flag = true;
+                    MainPage.SWITCH();
+                    System.Diagnostics.Debug.WriteLine("last word: " + words[words.Length-1]);
                     // Create a navigation parameter string to pass to the page
                     /* navigationParameterString = string.Format("{0}|{1}|{2}|{3}",
                                     voiceCommandName, commandMode, textSpoken, control); */
