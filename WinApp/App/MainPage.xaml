@@ -56,12 +56,12 @@
                 <Rectangle Grid.Row="0" Grid.Column="2" Fill="Orange" Tapped="OrangeRectangle_Tapped"/>
                 <Rectangle Grid.Row="0" Grid.Column="3" Fill="Yellow" Tapped="YellowRectangle_Tapped"/>
                 <Rectangle Grid.Row="0" Grid.Column="4" Fill="Green" Tapped="GreenRectangle_Tapped"/>
-                
-                <Rectangle Grid.Row="1" Grid.Column="0" Fill="White"/>
-                <Rectangle Grid.Row="1" Grid.Column="1" Fill="Gray"/>
-                <Rectangle Grid.Row="1" Grid.Column="2" Fill="Blue"/>
-                <Rectangle Grid.Row="1" Grid.Column="3" Fill="Purple"/>
-                <Rectangle Grid.Row="1" Grid.Column="4" Fill="Brown"/>
+
+                <Rectangle Grid.Row="1" Grid.Column="0" Fill="White" Tapped="WhiteRectangle_Tapped"/>
+                <Rectangle Grid.Row="1" Grid.Column="1" Fill="Gray" Tapped="GrayRectangle_Tapped"/>
+                <Rectangle Grid.Row="1" Grid.Column="2" Fill="Blue" Tapped="BlueRectangle_Tapped"/>
+                <Rectangle Grid.Row="1" Grid.Column="3" Fill="Purple" Tapped="PurpleRectangle_Tapped"/>
+                <Rectangle Grid.Row="1" Grid.Column="4" Fill="Brown" Tapped="BrownRectangle_Tapped"/>
             </Grid>
         </Grid>
 

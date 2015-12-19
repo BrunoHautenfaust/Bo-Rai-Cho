@@ -251,6 +251,11 @@ namespace App1
                     case "Orange": changedColor = new SolidColorBrush(Windows.UI.Colors.Orange); break;
                     case "Yellow": changedColor = new SolidColorBrush(Windows.UI.Colors.Yellow); break;
                     case "Green": changedColor = new SolidColorBrush(Windows.UI.Colors.Green); break;
+                    case "White": changedColor = new SolidColorBrush(Windows.UI.Colors.White); break;
+                    case "Gray": changedColor = new SolidColorBrush(Windows.UI.Colors.Gray); break;
+                    case "Blue": changedColor = new SolidColorBrush(Windows.UI.Colors.Blue); break;
+                    case "Purple": changedColor = new SolidColorBrush(Windows.UI.Colors.Purple); break;
+                    case "Brown": changedColor = new SolidColorBrush(Windows.UI.Colors.Brown); break;
                     default: break;
                 }
                // changedColor = new SolidColorBrush(Windows.UI.Colors.Red);
@@ -258,16 +263,14 @@ namespace App1
             }
         }
 
-        public void RedRectangle_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-           changedColor = new SolidColorBrush(Windows.UI.Colors.Red);
-           //     default: changedColor = new SolidColorBrush(Windows.UI.Colors.Black); break;
-            //ChangeColor();
-        }
-        
         private void BlackRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
             changedColor = new SolidColorBrush(Windows.UI.Colors.Black);
+        }
+
+        public void RedRectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            changedColor = new SolidColorBrush(Windows.UI.Colors.Red);
         }
 
         private void OrangeRectangle_Tapped(object sender, TappedRoutedEventArgs e)
@@ -285,9 +288,29 @@ namespace App1
             changedColor = new SolidColorBrush(Windows.UI.Colors.Green);
         }
 
-       
+        private void WhiteRectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            changedColor = new SolidColorBrush(Windows.UI.Colors.White);
+        }
 
+        private void GrayRectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            changedColor = new SolidColorBrush(Windows.UI.Colors.Gray);
+        }
 
+        private void BlueRectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            changedColor = new SolidColorBrush(Windows.UI.Colors.Blue);
+        }
 
+        private void PurpleRectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            changedColor = new SolidColorBrush(Windows.UI.Colors.Purple);
+        }
+
+        private void BrownRectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            changedColor = new SolidColorBrush(Windows.UI.Colors.Brown);
+        }
     }
 }

@@ -24,6 +24,11 @@
       <Item> Orange </Item>
       <Item> Yellow </Item>
       <Item> Green </Item>
+      <Item> White </Item>
+      <Item> Gray </Item>
+      <Item> Blue </Item>
+      <Item> Purple </Item>
+      <Item> Brown </Item>
     </PhraseList>
     
     <!--
