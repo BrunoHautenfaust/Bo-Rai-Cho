@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Media.SpeechRecognition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace App1
@@ -83,10 +74,10 @@ namespace App1
                     string color = speechRecognitionResult.SemanticInterpretation.Properties["color"][0];
                     System.Diagnostics.Debug.WriteLine("textSpoken: " + textSpoken);
                     string[] words = color.Split(' ');
-                    MainPage.Keyword = words[words.Length - 1];
+                    ColorChanger.Keyword = words[words.Length - 1];
 
-                    MainPage.Flag = true;
-                    MainPage.PickColor();
+                    ColorChanger.Flag = true;
+                    ColorChanger.PickColor();
                     // System.Diagnostics.Debug.WriteLine("last word: " + words[words.Length-1]);
                     break;
 
