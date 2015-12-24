@@ -1,26 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using Windows.Foundation;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-
-using Windows.UI.Input.Inking;
-using Windows.Devices.Input;
-using Windows.UI.Input;
-
-using Windows.UI.Xaml.Shapes;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+﻿// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace App1
 {
+    using System;
+    using System.Collections.Generic;
+    using Windows.Foundation;
+    using Windows.UI.Xaml.Controls;
+    using Windows.UI.Xaml.Input;
+    using Windows.UI.Xaml.Media;
+
+    using Windows.UI.Input.Inking;
+    using Windows.Devices.Input;
+    using Windows.UI.Input;
+
+    using Windows.UI.Xaml.Shapes;
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        InkManager inkManager = new Windows.UI.Input.Inking.InkManager();
+        InkManager inkManager = new InkManager();
         Point previousContactPt;
         uint penID = 0;
         const double STROKETHICKNESS = 5;
@@ -144,7 +144,7 @@ namespace App1
                 PathSegmentCollection pathSegments = new PathSegmentCollection();
 
                 // Create a path and define its attributes.
-                Windows.UI.Xaml.Shapes.Path path = new Windows.UI.Xaml.Shapes.Path();
+                Path path = new Path();
 
                 // Get the stroke segments.
                 IReadOnlyList<InkStrokeRenderingSegment> segments;
@@ -192,52 +192,52 @@ namespace App1
         
         private void BlackRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ColorChanger.ChangedColor = new SolidColorBrush(Windows.UI.Colors.Black);
+            ColorChanger.ChangedColor = ColorChanger.Black;
         }
 
         public void RedRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ColorChanger.ChangedColor = new SolidColorBrush(Windows.UI.Colors.Red);
+            ColorChanger.ChangedColor = ColorChanger.Red;
         }
 
         private void OrangeRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ColorChanger.ChangedColor = new SolidColorBrush(Windows.UI.Colors.Orange);
+            ColorChanger.ChangedColor = ColorChanger.Orange;
         }
 
         private void YellowRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ColorChanger.ChangedColor = new SolidColorBrush(Windows.UI.Colors.Yellow);
+            ColorChanger.ChangedColor = ColorChanger.Yellow;
         }
 
         private void GreenRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ColorChanger.ChangedColor = new SolidColorBrush(Windows.UI.Colors.Green);
+            ColorChanger.ChangedColor = ColorChanger.Green;
         }
 
         private void WhiteRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ColorChanger.ChangedColor = new SolidColorBrush(Windows.UI.Colors.White);
+            ColorChanger.ChangedColor = ColorChanger.White;
         }
 
         private void GrayRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ColorChanger.ChangedColor = new SolidColorBrush(Windows.UI.Colors.Gray);
+            ColorChanger.ChangedColor = ColorChanger.Gray;
         }
 
         private void BlueRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ColorChanger.ChangedColor = new SolidColorBrush(Windows.UI.Colors.Blue);
+            ColorChanger.ChangedColor = ColorChanger.Blue;
         }
 
         private void PurpleRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ColorChanger.ChangedColor = new SolidColorBrush(Windows.UI.Colors.Purple);
+            ColorChanger.ChangedColor = ColorChanger.Purple;
         }
 
         private void BrownRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ColorChanger.ChangedColor = new SolidColorBrush(Windows.UI.Colors.Brown);
+            ColorChanger.ChangedColor = ColorChanger.Brown;
         }
 
         private void ListBoxItem_Tapped(object sender, TappedRoutedEventArgs e)
