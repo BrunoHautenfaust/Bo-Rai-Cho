@@ -9,17 +9,20 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--App Title-->
-        <Grid Name="AppTitle" Background="Crimson" Grid.Row="0">
-            <TextBlock Text="App Title" Style="{StaticResource TitleStyle}"/>
+        <Grid Name="Options" Background="Black" Grid.Row="0">
+            <TextBlock Text="Options(TODO)" Style="{StaticResource TitleStyle}"/>
         </Grid>
         <!--Drawing Canvas-->
-        <Grid Name="InkCanvas" Background="White" Grid.Row="1" BorderBrush="Gray" BorderThickness="5" >
-            <Canvas/>
+        <Grid Name="CanvasHolder" Grid.Row="1" BorderBrush="Gray" BorderThickness="5" >
+            <ScrollViewer  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <Grid Name="InkCanvas" Background="White" Height="500" Width="Auto"/>
+           </ScrollViewer>
+
         </Grid>
         <!--Other Stuff-->
         <Grid Name="OtherStuff" Background="Purple" Grid.Row="2" Grid.Column="0">

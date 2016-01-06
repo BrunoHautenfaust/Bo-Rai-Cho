@@ -7,11 +7,10 @@
 
     <Application.Resources>
         <Style x:Key="TitleStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="Black"/>
-
+            <Setter Property="Foreground" Value="White"/>
         </Style>
     </Application.Resources>
     

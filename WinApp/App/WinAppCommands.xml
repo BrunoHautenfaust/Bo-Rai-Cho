@@ -5,14 +5,14 @@
     <Example> pick </Example>
 
     <Command Name="pickColor">
-      <Example> pick  </Example>
-      <ListenFor> pick {color} </ListenFor>
+      <Example> {color} </Example>
+      <ListenFor> {color} </ListenFor>
       <Feedback> {color} </Feedback>
       <Navigate/>
     </Command>
 
     <Command Name="open">
-      <Example> Open  </Example>
+      <Example> Open </Example>
       <ListenFor> Open </ListenFor>
       <ListenFor> Start </ListenFor>
       <Feedback> opening App </Feedback>
