@@ -1,150 +1,138 @@
-﻿// UNUSED FOR NOW           <<<<<<<<<<<<<<<<<<<< !!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-namespace App1
+﻿namespace App1
 {
-    using System.ComponentModel;
     using Windows.UI;
     using Windows.UI.Input.Inking;
 
-    public   class ColorChanger : INotifyPropertyChanged
+    public static class ColorChanger
     {
-        //  private   bool flag = false;
-        private   string keyword;
-        private   InkDrawingAttributes inkDrawingAttributes = new InkDrawingAttributes();
+        private static string keyword;
+        private static InkDrawingAttributes inkDrawingAttributes = new InkDrawingAttributes();
 
-        private Color changedColor;
-        private   Color black = Colors.Black;
-        private   Color red = Colors.Red;
-        private   Color orange = Colors.Orange;
-        private   Color yellow = Colors.Yellow;
-        private   Color green = Colors.Green;
+        private static Color black = Colors.Black;
+        private static Color red = Colors.Red;
+        private static Color orange = Colors.Orange;
+        private static Color yellow = Colors.Yellow;
+        private static Color green = Colors.Green;
 
-        private   Color white = Colors.White;
-        private   Color blue = Colors.Blue;
-        private   Color gray = Colors.Gray;
-        private   Color purple = Colors.Purple;
-        private   Color brown = Colors.Brown;
-
-        // Weird error! Bug maybe?
-     //   private Color changedColor = black;
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public ColorChanger CChanger
-        {
-            get { return this; }
-        }
+        private static Color white = Colors.White;
+        private static Color blue = Colors.Blue;
+        private static Color gray = Colors.Gray;
+        private static Color purple = Colors.Purple;
+        private static Color brown = Colors.Brown;
 
 
         #region Colors Props
 
-        public   Color Black
+        public static Color Black
         {
             get { return black; }
         }
 
-        public   Color Red
+        public static Color Red
         {
             get { return red; }
         }
 
-        public   Color Orange
+        public static Color Orange
         {
             get { return orange; }
         }
 
-        public   Color Yellow
+        public static Color Yellow
         {
             get { return yellow; }
         }
 
-        public   Color Green
+        public static Color Green
         {
             get { return green; }
         }
 
-        public   Color White
+        public static Color White
         {
             get { return white; }
         }
 
-        public   Color Blue
+        public static Color Blue
         {
             get { return blue; }
         }
 
-        public   Color Gray
+        public static Color Gray
         {
             get { return gray; }
         }
 
-        public   Color Purple
+        public static Color Purple
         {
             get { return purple; }
         }
 
-        public   Color Brown
+        public static Color Brown
         {
             get { return brown; }
         }
         #endregion
-        public   InkDrawingAttributes InkDrawingAttributes
+
+        public static InkDrawingAttributes InkDrawingAttributes
         {
             get { return inkDrawingAttributes; }
             set { inkDrawingAttributes = value; }
         }
 
-        public   Color ChangedColor
-        {
-            get { return changedColor; }
-            set
-            {
-                changedColor = value;
-                // Insert notification here!
-                Notify();
-              
-            }
-        }
-
-        private   void Notify()
-        {
-            System.Diagnostics.Debug.WriteLine("Notified!");
-            // must notify InkCanvas in MainPage here. Delegate?
-        }
-
-        /*
-public   bool Flag
-{
-   get { return flag; }
-   set { flag = value; }
-}
-*/
-        public   string Keyword
+        public static string Keyword
         {
             get { return keyword; }
             set { keyword = value; }
         }
 
-        public   void PickColor()
+        public static void PickColor()
         {
-          //  if (Flag == true)
-         //   {
                 // System.Diagnostics.Debug.WriteLine("keyword: " + Keyword);
                 switch (Keyword)
                 {
-// Maybe create an InkCanvas object
-                    case "Red": ChangedColor = Red;
-                   // NotifyEventHandler n;
-                   // InkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
+                case "Black":
+                    MainPage.ChangedColor = Black;
                     break;
 
-                    case "Blue": ChangedColor = Blue; break;
+                case "Red":
+                    MainPage.ChangedColor = Red;
+                    break;
+
+                case "Orange":
+                    MainPage.ChangedColor = Orange;
+                    break;
+
+                case "Yellow":
+                    MainPage.ChangedColor = Yellow;
+                    break;
+
+                case "Green":
+                    MainPage.ChangedColor = Green;
+                    break;
+
+                case "White":
+                    MainPage.ChangedColor = White;
+                    break;
+
+                case "Blue":
+                    MainPage.ChangedColor = Blue;
+                    break;
+
+                case "Gray":
+                    MainPage.ChangedColor = Gray;
+                    break;
+
+                case "Purple":
+                    MainPage.ChangedColor = Purple;
+                    break;
+
+                case "Brown":
+                    MainPage.ChangedColor = Brown;
+                    break;
+
                 default: break;
                 }
-            InkDrawingAttributes.Color = ChangedColor;
-            //  Flag = false;
-            //  }
         }
     }
 }

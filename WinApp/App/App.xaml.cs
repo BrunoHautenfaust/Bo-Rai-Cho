@@ -74,9 +74,9 @@
                     System.Diagnostics.Debug.WriteLine("textSpoken: " + textSpoken);
                     string[] words = color.Split(' ');
 
-                    MainPage.Keyword = words[words.Length - 1];
+                    ColorChanger.Keyword = words[words.Length - 1];
 
-                    MainPage.PickColor();
+                    ColorChanger.PickColor();
                     // System.Diagnostics.Debug.WriteLine("last word: " + words[words.Length-1]);
                     break;
 

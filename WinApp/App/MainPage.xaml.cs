@@ -8,13 +8,12 @@ namespace App1
     using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml.Input;
 
-
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private static string keyword;
+        private static Color changedColor;
 
         private static InkDrawingAttributes inkDrawingAttributes = new InkDrawingAttributes();
         private static InkCanvas staticInkCanvas;
@@ -39,73 +38,20 @@ namespace App1
             staticInkCanvas.InkPresenter.InputDeviceTypes = CoreInputDeviceTypes.Mouse | CoreInputDeviceTypes.Pen | CoreInputDeviceTypes.Touch;
         }
         
-        public static string Keyword
+        public static Color ChangedColor
         {
-            get { return keyword; }
-            set { keyword = value; }
+            get { return changedColor; }
+            set
+            {
+                changedColor = value;
+                inkDrawingAttributes.Color = ChangedColor;
+                staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+            }
         }
-        
+
         public static void ClearCanvas()
         {
             staticInkCanvas.InkPresenter.StrokeContainer.Clear();
-        }
-
-        public static void PickColor()
-        {
-            switch (Keyword)
-            {
-                case "Black":
-                    inkDrawingAttributes.Color = black;
-                    staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
-                    break;
-
-                case "Red":
-                    inkDrawingAttributes.Color = red;
-                    staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
-                    break;
-
-                case "Orange":
-                    inkDrawingAttributes.Color = orange;
-                    staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
-                    break;
-
-                case "Yellow":
-                    inkDrawingAttributes.Color = yellow;
-                    staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
-                    break;
-
-                case "Green":
-                    inkDrawingAttributes.Color = green;
-                    staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
-                    break;
-
-                case "White":
-                    inkDrawingAttributes.Color = white;
-                    staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
-                    break;
-
-                case "Blue":
-                    inkDrawingAttributes.Color = blue;
-                    staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
-                    break;
-
-                case "Gray":
-                    inkDrawingAttributes.Color = gray;
-                    staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
-                    break;
-
-                case "Purple":
-                    inkDrawingAttributes.Color = purple;
-                    staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
-                    break;
-
-                case "Brown":
-                    inkDrawingAttributes.Color = brown;
-                    staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
-                    break;
-
-                default: break;
-            }
         }
 
         private void BlackRectangle_Tapped(object sender, TappedRoutedEventArgs e)
