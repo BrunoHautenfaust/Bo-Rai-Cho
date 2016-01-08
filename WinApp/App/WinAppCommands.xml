@@ -3,26 +3,43 @@
   <CommandSet xml:lang="en-us" Name="WinAppCommandSet_en-us">
     <CommandPrefix> App, </CommandPrefix>
     <Example> pick </Example>
-
+  
+    <Command Name="open">
+      <Example> Open </Example>
+      <ListenFor> Open </ListenFor>
+      <ListenFor> Start </ListenFor>
+      <Feedback> Opening App </Feedback>
+      <Navigate/>
+    </Command>
+    
+    <Command Name="pickPen">
+      <Example> Pick pen </Example>
+      <ListenFor> [Pick] pen </ListenFor>
+      <ListenFor> [Select] pen </ListenFor>
+      <Feedback> Pen </Feedback>
+      <Navigate/>
+    </Command>
+    
+    <Command Name="pickEraser">
+      <Example> Pick eraser </Example>
+      <ListenFor> [Pick] eraser </ListenFor>
+      <ListenFor> [Select] eraser </ListenFor>
+      <Feedback> Eraser </Feedback>
+      <Navigate/>
+    </Command>
+      
     <Command Name="pickColor">
       <Example> {color} </Example>
-      <ListenFor> {color} </ListenFor>
+      <ListenFor> [Pick] {color} </ListenFor>
+      <ListenFor> [Select] {color} </ListenFor>
       <Feedback> {color} </Feedback>
       <Navigate/>
     </Command>
 
     <Command Name="clearCanvas">
       <Example> Clear </Example>
-      <ListenFor> Clear </ListenFor>
-      <Feedback> canvas cleared </Feedback>
-      <Navigate/>
-    </Command>
-    
-    <Command Name="open">
-      <Example> Open </Example>
-      <ListenFor> Open </ListenFor>
-      <ListenFor> Start </ListenFor>
-      <Feedback> opening App </Feedback>
+      <ListenFor> Clear [canvas] </ListenFor>
+      <Feedback> Canvas cleared </Feedback>
       <Navigate/>
     </Command>
     
@@ -44,3 +61,5 @@
 <!-- Other CommandSets for other languages -->
 
 </VoiceCommands>
+
+<!-- documentation: https://msdn.microsoft.com/en-us/library/windows/apps/dn706593.aspx -->

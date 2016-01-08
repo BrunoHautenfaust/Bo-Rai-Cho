@@ -2,9 +2,15 @@
 
 namespace App1
 {
+    using System;
+    using System.Collections.Generic;
+    using Windows.Storage;
+    using Windows.Storage.Pickers;
+    using Windows.Storage.Streams;
     using Windows.UI;
     using Windows.UI.Core;
     using Windows.UI.Input.Inking;
+    using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml.Input;
 
@@ -13,6 +19,7 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
         private static InkCanvas staticInkCanvas;
         private static InkDrawingAttributes inkDrawingAttributes = new InkDrawingAttributes();
         private static Color changedColor;
@@ -35,8 +42,10 @@ namespace App1
 
             staticInkCanvas = inkCanvas;
             staticInkCanvas.InkPresenter.InputDeviceTypes = CoreInputDeviceTypes.Mouse | CoreInputDeviceTypes.Pen | CoreInputDeviceTypes.Touch;
+            // Window.Current.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Hand, 1);
+
         }
-        
+
         public static Color ChangedColor
         {
             get { return changedColor; }
@@ -46,6 +55,17 @@ namespace App1
                 inkDrawingAttributes.Color = ChangedColor;
                 staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
             }
+        }
+        public static void PickPen()
+        {
+            staticInkCanvas.InkPresenter.InputProcessingConfiguration.Mode =
+               InkInputProcessingMode.Inking;
+        }
+
+        public static void PickEraser()
+        {
+            staticInkCanvas.InkPresenter.InputProcessingConfiguration.Mode =
+              InkInputProcessingMode.Erasing;
         }
 
         public static void ClearCanvas()
@@ -66,7 +86,7 @@ namespace App1
 
             staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
         }
-        
+
         private void OrangeRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
             inkDrawingAttributes.Color = orange;
@@ -125,20 +145,51 @@ namespace App1
 
         private void PenButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            staticInkCanvas.InkPresenter.InputProcessingConfiguration.Mode =
-               InkInputProcessingMode.Inking;
+            PickPen();
         }
 
         private void EraserButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            staticInkCanvas.InkPresenter.InputProcessingConfiguration.Mode =
-               InkInputProcessingMode.Erasing;
+            PickEraser();
         }
 
         private void ClearCanvasButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             ClearCanvas();
         }
-        
+
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            var savePicker = new FileSavePicker();
+            savePicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            savePicker.FileTypeChoices.Add("*.png", new List<string> { ".png" });
+
+            StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+            if (storageFile != null)
+            {
+                using (IRandomAccessStream stream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
+                {
+                    await staticInkCanvas.InkPresenter.StrokeContainer.SaveAsync(stream);
+                }
+            }
+        }
+
+        private async void LoadButton_Click(object sender, RoutedEventArgs e)
+        {
+            var fileOpen = new FileOpenPicker();
+            fileOpen.FileTypeFilter.Add(".png");
+
+            var storageFile = await fileOpen.PickSingleFileAsync();
+
+            if (storageFile != null)
+            {
+                using (IRandomAccessStreamWithContentType stream = await storageFile.OpenReadAsync())
+                {
+                    ClearCanvas();
+                    await staticInkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
+                }
+            }
+        }
     }
 }

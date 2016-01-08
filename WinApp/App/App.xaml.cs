@@ -80,6 +80,14 @@
                     // System.Diagnostics.Debug.WriteLine("last word: " + words[words.Length-1]);
                     break;
 
+                case "pickPen":
+                    MainPage.PickPen();
+                    break;
+
+                case "pickEraser":
+                    MainPage.PickEraser();
+                    break;
+
                 case "clearCanvas":
                     MainPage.ClearCanvas();
                     break;

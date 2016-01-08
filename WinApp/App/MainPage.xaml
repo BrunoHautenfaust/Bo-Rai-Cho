@@ -6,17 +6,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
+    <Page.TopAppBar>
+        <AppBar IsOpen="False" RequestedTheme="Dark">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton x:Name="SaveButton" Icon="Save" Label="Save" Click="SaveButton_Click"/>
+                <AppBarButton x:Name="LoadButton" Icon="OpenFile" Label="Load" Click="LoadButton_Click"/>
+            </StackPanel>
+        </AppBar>
+    </Page.TopAppBar>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!--App Title-->
-        <Grid Name="Options" Background="Black" Grid.Row="0">
-            <TextBlock Text="Options(TODO)" Style="{StaticResource TitleStyle}"/>
-        </Grid>
+          <!--  <TextBlock Text="Options(TODO)" Style="{StaticResource TitleStyle}"/> -->
         <!--Drawing Canvas-->
         <Grid Name="CanvasHolder" Grid.Row="1" BorderBrush="Gray" BorderThickness="5" >
             <ScrollViewer  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
