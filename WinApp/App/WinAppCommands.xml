@@ -11,6 +11,13 @@
       <Navigate/>
     </Command>
 
+    <Command Name="clearCanvas">
+      <Example> Clear </Example>
+      <ListenFor> Clear </ListenFor>
+      <Feedback> canvas cleared </Feedback>
+      <Navigate/>
+    </Command>
+    
     <Command Name="open">
       <Example> Open </Example>
       <ListenFor> Open </ListenFor>

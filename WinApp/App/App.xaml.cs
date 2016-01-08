@@ -25,10 +25,9 @@
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
         }
-
-        //////////
-
+        
         protected override void OnActivated(IActivatedEventArgs e)
         {
             // Needed to make the app start with Cortana
@@ -74,11 +73,15 @@
                     string color = speechRecognitionResult.SemanticInterpretation.Properties["color"][0];
                     System.Diagnostics.Debug.WriteLine("textSpoken: " + textSpoken);
                     string[] words = color.Split(' ');
-                    ColorChanger.Keyword = words[words.Length - 1];
 
-                    ColorChanger.Flag = true;
-                    ColorChanger.PickColor();
+                    MainPage.Keyword = words[words.Length - 1];
+
+                    MainPage.PickColor();
                     // System.Diagnostics.Debug.WriteLine("last word: " + words[words.Length-1]);
+                    break;
+
+                case "clearCanvas":
+                    MainPage.ClearCanvas();
                     break;
 
                 case "open":
@@ -87,6 +90,7 @@
 
                 default: break;
             }
+           
             /*
             if (this.rootFrame == null)
             {
@@ -105,9 +109,6 @@
             return speechRecognitionResult.SemanticInterpretation.Properties[interpretationKey].FirstOrDefault();
         }
 
-
-
-        /////////////////
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

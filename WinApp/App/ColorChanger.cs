@@ -1,113 +1,150 @@
-﻿namespace App1
+﻿// UNUSED FOR NOW           <<<<<<<<<<<<<<<<<<<< !!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+namespace App1
 {
-    using Windows.UI.Xaml.Media;
+    using System.ComponentModel;
+    using Windows.UI;
+    using Windows.UI.Input.Inking;
 
-    public static class ColorChanger
+    public   class ColorChanger : INotifyPropertyChanged
     {
-        private static bool flag = false;
-        private static string keyword;
-        private static SolidColorBrush changedColor = new SolidColorBrush(Windows.UI.Colors.Black);
-        private static SolidColorBrush black = new SolidColorBrush(Windows.UI.Colors.Black);
-        private static SolidColorBrush red = new SolidColorBrush(Windows.UI.Colors.Red);
-        private static SolidColorBrush orange = new SolidColorBrush(Windows.UI.Colors.Orange);
-        private static SolidColorBrush yellow = new SolidColorBrush(Windows.UI.Colors.Yellow);
-        private static SolidColorBrush green = new SolidColorBrush(Windows.UI.Colors.Green);
-             
-        private static SolidColorBrush white = new SolidColorBrush(Windows.UI.Colors.White);
-        private static SolidColorBrush gray = new SolidColorBrush(Windows.UI.Colors.Gray);
-        private static SolidColorBrush blue = new SolidColorBrush(Windows.UI.Colors.Blue);
-        private static SolidColorBrush purple = new SolidColorBrush(Windows.UI.Colors.Purple);
-        private static SolidColorBrush brown = new SolidColorBrush(Windows.UI.Colors.Brown);
+        //  private   bool flag = false;
+        private   string keyword;
+        private   InkDrawingAttributes inkDrawingAttributes = new InkDrawingAttributes();
 
-        public static SolidColorBrush Black
+        private Color changedColor;
+        private   Color black = Colors.Black;
+        private   Color red = Colors.Red;
+        private   Color orange = Colors.Orange;
+        private   Color yellow = Colors.Yellow;
+        private   Color green = Colors.Green;
+
+        private   Color white = Colors.White;
+        private   Color blue = Colors.Blue;
+        private   Color gray = Colors.Gray;
+        private   Color purple = Colors.Purple;
+        private   Color brown = Colors.Brown;
+
+        // Weird error! Bug maybe?
+     //   private Color changedColor = black;
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public ColorChanger CChanger
+        {
+            get { return this; }
+        }
+
+
+        #region Colors Props
+
+        public   Color Black
         {
             get { return black; }
         }
 
-        public static SolidColorBrush Red
+        public   Color Red
         {
             get { return red; }
         }
 
-        public static SolidColorBrush Orange
+        public   Color Orange
         {
             get { return orange; }
         }
 
-        public static SolidColorBrush Yellow
+        public   Color Yellow
         {
             get { return yellow; }
         }
 
-        public static SolidColorBrush Green
+        public   Color Green
         {
             get { return green; }
         }
 
-        public static SolidColorBrush White
+        public   Color White
         {
             get { return white; }
         }
 
-        public static SolidColorBrush Gray
-        {
-            get { return gray; }
-        }
-
-        public static SolidColorBrush Blue
+        public   Color Blue
         {
             get { return blue; }
         }
 
-        public static SolidColorBrush Purple
+        public   Color Gray
+        {
+            get { return gray; }
+        }
+
+        public   Color Purple
         {
             get { return purple; }
         }
 
-        public static SolidColorBrush Brown
+        public   Color Brown
         {
             get { return brown; }
         }
+        #endregion
+        public   InkDrawingAttributes InkDrawingAttributes
+        {
+            get { return inkDrawingAttributes; }
+            set { inkDrawingAttributes = value; }
+        }
 
-        public static SolidColorBrush ChangedColor
+        public   Color ChangedColor
         {
             get { return changedColor; }
-            set { changedColor = value; }
+            set
+            {
+                changedColor = value;
+                // Insert notification here!
+                Notify();
+              
+            }
         }
 
-        public static bool Flag
+        private   void Notify()
         {
-            get { return flag; }
-            set { flag = value; }
+            System.Diagnostics.Debug.WriteLine("Notified!");
+            // must notify InkCanvas in MainPage here. Delegate?
         }
 
-        public static string Keyword
+        /*
+public   bool Flag
+{
+   get { return flag; }
+   set { flag = value; }
+}
+*/
+        public   string Keyword
         {
             get { return keyword; }
             set { keyword = value; }
         }
 
-        public static void PickColor()
+        public   void PickColor()
         {
-            if (Flag == true)
-            {
+          //  if (Flag == true)
+         //   {
                 // System.Diagnostics.Debug.WriteLine("keyword: " + Keyword);
                 switch (Keyword)
                 {
-                    case "Black": changedColor = Black; break;
-                    case "Red": changedColor = Red; break;
-                    case "Orange": changedColor = Orange; break;
-                    case "Yellow": changedColor = Yellow; break;
-                    case "Green": changedColor = Green; break;
-                    case "White": changedColor = White; break;
-                    case "Gray": changedColor = Gray; break;
-                    case "Blue": changedColor = Blue; break;
-                    case "Purple": changedColor = Purple; break;
-                    case "Brown": changedColor = Brown; break;
-                    default: break;
+// Maybe create an InkCanvas object
+                    case "Red": ChangedColor = Red;
+                   // NotifyEventHandler n;
+                   // InkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
+                    break;
+
+                    case "Blue": ChangedColor = Blue; break;
+                default: break;
                 }
-                Flag = false;
-            }
+            InkDrawingAttributes.Color = ChangedColor;
+            //  Flag = false;
+            //  }
         }
     }
 }

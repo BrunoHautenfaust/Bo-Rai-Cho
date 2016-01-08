@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"/>
@@ -19,9 +19,11 @@
         </Grid>
         <!--Drawing Canvas-->
         <Grid Name="CanvasHolder" Grid.Row="1" BorderBrush="Gray" BorderThickness="5" >
-            <ScrollViewer  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <Grid Name="InkCanvas" Background="White" Height="500" Width="Auto"/>
-           </ScrollViewer>
+            <ScrollViewer  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
+                <Grid Background="White" Height="800" Width="1300">
+                    <InkCanvas x:Name="inkCanvas" />
+                </Grid>
+            </ScrollViewer>
 
         </Grid>
         <!--Other Stuff-->
