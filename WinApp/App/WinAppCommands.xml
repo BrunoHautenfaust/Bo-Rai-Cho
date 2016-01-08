@@ -43,6 +43,20 @@
       <Navigate/>
     </Command>
     
+    <Command Name="save">
+      <Example> Save </Example>
+      <ListenFor> Save </ListenFor>
+      <Feedback> Opening Save Dialogue </Feedback>
+      <Navigate/>
+    </Command>
+    
+    <Command Name="load">
+      <Example> Load </Example>
+      <ListenFor> Load </ListenFor>
+      <Feedback> Opening Load Dialogue </Feedback>
+      <Navigate/>
+    </Command>
+    
     <PhraseList Label="color">
       <Item> Black </Item>
       <Item> Red </Item>

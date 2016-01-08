@@ -56,6 +56,7 @@ namespace App1
                 staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
             }
         }
+
         public static void PickPen()
         {
             staticInkCanvas.InkPresenter.InputProcessingConfiguration.Mode =
@@ -71,6 +72,40 @@ namespace App1
         public static void ClearCanvas()
         {
             staticInkCanvas.InkPresenter.StrokeContainer.Clear();
+        }
+
+        public async static void Save()
+        {
+            var savePicker = new FileSavePicker();
+            savePicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            savePicker.FileTypeChoices.Add("*.png", new List<string> { ".png" });
+
+            StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+            if (storageFile != null)
+            {
+                using (IRandomAccessStream stream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
+                {
+                    await staticInkCanvas.InkPresenter.StrokeContainer.SaveAsync(stream);
+                }
+            }
+        }
+
+        public async static void Load()
+        {
+            var fileOpen = new FileOpenPicker();
+            fileOpen.FileTypeFilter.Add(".png");
+
+            var storageFile = await fileOpen.PickSingleFileAsync();
+
+            if (storageFile != null)
+            {
+                using (IRandomAccessStreamWithContentType stream = await storageFile.OpenReadAsync())
+                {
+                    ClearCanvas();
+                    await staticInkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
+                }
+            }
         }
 
         private void BlackRectangle_Tapped(object sender, TappedRoutedEventArgs e)
@@ -107,7 +142,7 @@ namespace App1
 
             staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
         }
-
+        
         private void WhiteRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
             inkDrawingAttributes.Color = white;
@@ -158,38 +193,14 @@ namespace App1
             ClearCanvas();
         }
 
-        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var savePicker = new FileSavePicker();
-            savePicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
-            savePicker.FileTypeChoices.Add("*.png", new List<string> { ".png" });
-
-            StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-            if (storageFile != null)
-            {
-                using (IRandomAccessStream stream = await storageFile.OpenAsync(FileAccessMode.ReadWrite))
-                {
-                    await staticInkCanvas.InkPresenter.StrokeContainer.SaveAsync(stream);
-                }
-            }
+            Save();
         }
 
-        private async void LoadButton_Click(object sender, RoutedEventArgs e)
+        private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
-            var fileOpen = new FileOpenPicker();
-            fileOpen.FileTypeFilter.Add(".png");
-
-            var storageFile = await fileOpen.PickSingleFileAsync();
-
-            if (storageFile != null)
-            {
-                using (IRandomAccessStreamWithContentType stream = await storageFile.OpenReadAsync())
-                {
-                    ClearCanvas();
-                    await staticInkCanvas.InkPresenter.StrokeContainer.LoadAsync(stream);
-                }
-            }
+            Load();
         }
     }
 }

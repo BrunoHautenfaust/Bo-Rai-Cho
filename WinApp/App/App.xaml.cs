@@ -92,6 +92,14 @@
                     MainPage.ClearCanvas();
                     break;
 
+                case "save":
+                    MainPage.Save();
+                    break;
+
+                case "load":
+                    MainPage.Load();
+                    break;
+
                 case "open":
                     string open = speechRecognitionResult.RulePath[0];
                     break;
