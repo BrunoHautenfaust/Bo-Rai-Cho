@@ -39,8 +39,11 @@
                         <VirtualizingStackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
-                <ListBoxItem Margin="10" Content="Pen" Background="Green" Width="100" Height="100" HorizontalContentAlignment="Center"/>
-                <ListBoxItem Margin="10" Content="Clear Canvas" Padding="5"  Background="Green" Width="100" Height="100" Tapped="ListBoxItem_Tapped" />
+                <ListBoxItem Margin="5" Content="Pen" Background="Green" Width="70" Height="70" HorizontalContentAlignment="Center" Tapped="PenButton_Tapped"/>
+                <ListBoxItem Margin="5" Content="Eraser" Background="Green" Width="70" Height="70" HorizontalContentAlignment="Center" Tapped="EraserButton_Tapped" />
+                <ListBoxItem Margin="5" Padding="5" Background="Green" Width="70" Height="70" Tapped="ClearCanvasButton_Tapped">
+                    <TextBlock Text="Clear Canvas" Padding="5" TextAlignment="Center" TextWrapping="Wrap"/>
+                </ListBoxItem>
             </ListBox>
             <!--Colors-->
             <Grid Name="Colors" Grid.Column="1">

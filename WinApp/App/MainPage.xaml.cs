@@ -13,10 +13,9 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private static Color changedColor;
-
-        private static InkDrawingAttributes inkDrawingAttributes = new InkDrawingAttributes();
         private static InkCanvas staticInkCanvas;
+        private static InkDrawingAttributes inkDrawingAttributes = new InkDrawingAttributes();
+        private static Color changedColor;
 
         private static Color black = Windows.UI.Colors.Black;
         private static Color red = Windows.UI.Colors.Red;
@@ -124,7 +123,19 @@ namespace App1
             staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
         }
 
-        private void ListBoxItem_Tapped(object sender, TappedRoutedEventArgs e)
+        private void PenButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            staticInkCanvas.InkPresenter.InputProcessingConfiguration.Mode =
+               InkInputProcessingMode.Inking;
+        }
+
+        private void EraserButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            staticInkCanvas.InkPresenter.InputProcessingConfiguration.Mode =
+               InkInputProcessingMode.Erasing;
+        }
+
+        private void ClearCanvasButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             ClearCanvas();
         }
