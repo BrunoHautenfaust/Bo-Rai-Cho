@@ -19,9 +19,7 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
         private static InkCanvas staticInkCanvas;
-        private static InkDrawingAttributes inkDrawingAttributes = new InkDrawingAttributes();
         private static Color changedColor;
 
         private static Color black = Windows.UI.Colors.Black;
@@ -52,8 +50,8 @@ namespace App1
             set
             {
                 changedColor = value;
-                inkDrawingAttributes.Color = ChangedColor;
-                staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+                ColorChanger.InkDrawingAttributes.Color = ChangedColor;
+                staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
             }
         }
 
@@ -110,72 +108,72 @@ namespace App1
 
         private void BlackRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            inkDrawingAttributes.Color = black;
+            ColorChanger.InkDrawingAttributes.Color = black;
 
-            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
         }
 
         public void RedRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            inkDrawingAttributes.Color = red;
+            ColorChanger.InkDrawingAttributes.Color = red;
 
-            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
         }
 
         private void OrangeRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            inkDrawingAttributes.Color = orange;
+            ColorChanger.InkDrawingAttributes.Color = orange;
 
-            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
         }
 
         private void YellowRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            inkDrawingAttributes.Color = yellow;
+            ColorChanger.InkDrawingAttributes.Color = yellow;
 
-            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
         }
 
         private void GreenRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            inkDrawingAttributes.Color = green;
+            ColorChanger.InkDrawingAttributes.Color = green;
 
-            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
         }
         
         private void WhiteRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            inkDrawingAttributes.Color = white;
+            ColorChanger.InkDrawingAttributes.Color = white;
 
-            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
         }
 
         private void GrayRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            inkDrawingAttributes.Color = gray;
+            ColorChanger.InkDrawingAttributes.Color = gray;
 
-            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
         }
 
         private void BlueRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            inkDrawingAttributes.Color = blue;
+            ColorChanger.InkDrawingAttributes.Color = blue;
 
-            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
         }
 
         private void PurpleRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            inkDrawingAttributes.Color = purple;
+            ColorChanger.InkDrawingAttributes.Color = purple;
 
-            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
         }
 
         private void BrownRectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            inkDrawingAttributes.Color = brown;
+            ColorChanger.InkDrawingAttributes.Color = brown;
 
-            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(inkDrawingAttributes);
+            staticInkCanvas.InkPresenter.UpdateDefaultDrawingAttributes(ColorChanger.InkDrawingAttributes);
         }
 
         private void PenButton_Tapped(object sender, TappedRoutedEventArgs e)

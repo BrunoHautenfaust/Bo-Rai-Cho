@@ -29,7 +29,7 @@
     </Command>
       
     <Command Name="pickColor">
-      <Example> {color} </Example>
+      <Example> Pick (color name) </Example>
       <ListenFor> [Pick] {color} </ListenFor>
       <ListenFor> [Select] {color} </ListenFor>
       <Feedback> {color} </Feedback>

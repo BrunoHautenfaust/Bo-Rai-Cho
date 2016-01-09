@@ -4,7 +4,7 @@
     using Windows.UI.Input.Inking;
 
     public static class ColorChanger
-    {
+    {   // singleton with inkDrawingAttributes single instance ???
         private static string keyword;
         private static InkDrawingAttributes inkDrawingAttributes = new InkDrawingAttributes();
 
